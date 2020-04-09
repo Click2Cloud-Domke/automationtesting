@@ -23,23 +23,49 @@ public class Migration extends baseClass{
 	}
 	
   @Test
-  public void ImmediateMigration() throws InterruptedException {
+  public void ImmediateMigrationCephtoIBM() throws InterruptedException {
 	  driver.findElement(addtab).click();
 	  driver.findElement(Create).click();
 	  Thread.sleep(3000);
-	 driver.findElement(By.xpath("//input[@class='form-control mg_input ng-pristine ng-valid ng-empty ng-touched']")).sendKeys("migration");
+	 // driver.findElement(By.xpath("//div[@class='modal-body mg_modal-body lifeCycleBody mig_body']")).click();
+	 driver.findElement(By.xpath("//input[@name='migName']")).sendKeys("newmigrationcti");
 	WebElement dr= driver.findElement(By.xpath("//div[@class='modal-body mg_modal-body lifeCycleBody mig_body']//div[2]//div[1]//div[1]//select[1]"));
-	  Select sc=new Select(dr);
-	  sc.deselectByIndex(2);
-	  driver.findElement(By.xpath("//input[@class='form-control mg_input ng-pristine ng-valid ng-empty ng-touched']")).sendKeys("migration");
+	  dr.click();
+	Select sc=new Select(dr);
+	  sc.selectByIndex(5);
+	//  driver.findElement(By.xpath("//input[@class='form-control mg_input ng-pristine ng-valid ng-empty ng-touched']")).sendKeys("migration");
 		WebElement des1= driver.findElement(By.xpath("//div[@id='createModal']//div[3]//div[1]//div[1]//select[1]"));
 		  Select sc1=new Select(des1);
-		  sc.deselectByIndex(2);
+		  sc1.selectByIndex(5);
+		  
+		 driver.findElement(By.xpath("//button[contains(text(),'Migrate')]")).click();
+		 Thread.sleep(2000);
+		 driver.switchTo().alert().accept();
 		  
 		  
 		  
 	  
   }
+  @Test
+  public void ImmediateMigrationIbmtoCeph() throws InterruptedException {
+	  driver.findElement(addtab).click();
+	  driver.findElement(Create).click();
+	  Thread.sleep(3000);
+	 // driver.findElement(By.xpath("//div[@class='modal-body mg_modal-body lifeCycleBody mig_body']")).click();
+	 driver.findElement(By.xpath("//input[@name='migName']")).sendKeys("newmigrationitc");
+	WebElement dr= driver.findElement(By.xpath("//div[@class='modal-body mg_modal-body lifeCycleBody mig_body']//div[2]//div[1]//div[1]//select[1]"));
+	  dr.click();
+	Select sc=new Select(dr);
+	  sc.selectByIndex(5);
+	//  driver.findElement(By.xpath("//input[@class='form-control mg_input ng-pristine ng-valid ng-empty ng-touched']")).sendKeys("migration");
+		WebElement des1= driver.findElement(By.xpath("//div[@id='createModal']//div[3]//div[1]//div[1]//select[1]"));
+		  Select sc1=new Select(des1);
+		  sc1.selectByIndex(5);
+		  
+		 driver.findElement(By.xpath("//button[contains(text(),'Migrate')]")).click();
+		 Thread.sleep(2000);
+		 driver.switchTo().alert().accept();}
+		  
   @BeforeMethod
   public void beforeMethod() {
   }

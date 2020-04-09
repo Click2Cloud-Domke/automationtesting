@@ -48,14 +48,22 @@ public class baseClass implements ITestListener {
       multi.Login("tester", "Newuser@123");
   //  multi.dashboard();
       multi.storage();
-      //call CreateBucket
-      //  CreateBucket	bucket=  new  CreateBucket(driver);
-      //  bucket.existingbucket();
-       // bucket.exit();
+     // call CreateBucket
+        CreateBucket	bucket=  new  CreateBucket(driver);
+       // bucket.existingbucket();
+//        bucket.bucketCeph();
+//        bucket.uploadCeph();
+       // bucket.bucketIBM();
+//        bucket.uploadIBM();
+        bucket.existingbucketCeph();
+        bucket.uploadExistingCeph();
+       //bucket.existingbucketIBM();
+        
+      //  bucket.exit();
           
            //call Migration
-          Migration mg=new Migration(driver);         
-          mg.ImmediateMigration();
+//          Migration mg=new Migration(driver);         
+//         mg.ImmediateMigration();
           
       
 	  }

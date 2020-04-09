@@ -2,17 +2,29 @@
 <testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1590133" started-at="2020-04-06T10:26:32 IST" finished-at="2020-04-06T10:53:02 IST">
+  <suite name="Default suite" duration-ms="66598" started-at="2020-04-09T19:34:54 IST" finished-at="2020-04-09T19:36:01 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1590133" started-at="2020-04-06T10:26:32 IST" finished-at="2020-04-06T10:53:02 IST">
+    <test name="Default test" duration-ms="66598" started-at="2020-04-09T19:34:54 IST" finished-at="2020-04-09T19:36:01 IST">
       <class name="com.multicloud.baseClass">
-        <test-method status="FAIL" signature="baseclass()[pri:0, instance:com.multicloud.baseClass@382db087]" name="baseclass" is-config="true" duration-ms="1590099" started-at="2020-04-06T10:26:32 IST" finished-at="2020-04-06T10:53:02 IST">
-          <exception class="java.lang.NullPointerException">
+        <test-method status="FAIL" signature="baseclass()[pri:0, instance:com.multicloud.baseClass@382db087]" name="baseclass" is-config="true" duration-ms="66563" started-at="2020-04-09T19:34:54 IST" finished-at="2020-04-09T19:36:01 IST">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Cannot locate option with index: 3
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.49.0', revision: '365eeb4', time: '2016-01-13 18:37:00'
+System info: host: 'WSD080', ip: '192.168.0.20', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: driver.version: unknown]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.multicloud.Migration.ImmediateMigration(Migration.java:31)
-at com.multicloud.baseClass.baseclass(baseClass.java:58)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate option with index: 3
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.49.0', revision: '365eeb4', time: '2016-01-13 18:37:00'
+System info: host: 'WSD080', ip: '192.168.0.20', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: driver.version: unknown
+at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:187)
+at com.multicloud.CreateBucket.existingbucketIBM(CreateBucket.java:245)
+at com.multicloud.baseClass.baseclass(baseClass.java:59)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -47,16 +59,28 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- baseclass -->
-        <test-method status="SKIP" signature="testclass()[pri:0, instance:com.multicloud.baseClass@382db087]" name="testclass" duration-ms="0" started-at="2020-04-06T10:53:02 IST" finished-at="2020-04-06T10:53:02 IST">
-          <exception class="java.lang.NullPointerException">
+        <test-method status="SKIP" signature="testclass()[pri:0, instance:com.multicloud.baseClass@382db087]" name="testclass" duration-ms="0" started-at="2020-04-09T19:36:01 IST" finished-at="2020-04-09T19:36:01 IST">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Cannot locate option with index: 3
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.49.0', revision: '365eeb4', time: '2016-01-13 18:37:00'
+System info: host: 'WSD080', ip: '192.168.0.20', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: driver.version: unknown]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.multicloud.Migration.ImmediateMigration(Migration.java:31)
-at com.multicloud.baseClass.baseclass(baseClass.java:58)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate option with index: 3
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.49.0', revision: '365eeb4', time: '2016-01-13 18:37:00'
+System info: host: 'WSD080', ip: '192.168.0.20', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: driver.version: unknown
+at org.openqa.selenium.support.ui.Select.selectByIndex(Select.java:187)
+at com.multicloud.CreateBucket.existingbucketIBM(CreateBucket.java:245)
+at com.multicloud.baseClass.baseclass(baseClass.java:59)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -91,7 +115,7 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testclass -->
