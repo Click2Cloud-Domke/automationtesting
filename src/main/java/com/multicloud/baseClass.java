@@ -41,22 +41,27 @@ public class baseClass implements ITestListener {
 	  driver = new ChromeDriver();
 	 // driver.get("192.168.3.235:30510");
 	  Thread.sleep(2000);
-	//	driver.get("http://192.168.3.235:30510");
-	driver.get("https://test.click2yun.com/");
+		driver.get("http://192.168.3.235:30010/");
+	//driver.get("https://test.click2yun.com/");
 	  driver.manage().window().maximize();
 	  HomePage multi=new HomePage(driver);
       multi.Login("tester", "Newuser@123");
   //  multi.dashboard();
       multi.storage();
+//      Blockstorage bs = new Blockstorage(driver);
+//      bs.volume();
      // call CreateBucket
         CreateBucket	bucket=  new  CreateBucket(driver);
+        bucket.EncryptedbucketCeph();
+     
        // bucket.existingbucket();
-//        bucket.bucketCeph();
-//        bucket.uploadCeph();
+      //  bucket.bucketCeph();
+      //  bucket.deleteCeph();
+      //  bucket.uploadCeph();
        // bucket.bucketIBM();
 //        bucket.uploadIBM();
-        bucket.existingbucketCeph();
-        bucket.uploadExistingCeph();
+//        bucket.existingbucketCeph();
+//        bucket.uploadExistingCeph();
        //bucket.existingbucketIBM();
         
       //  bucket.exit();
