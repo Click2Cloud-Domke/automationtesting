@@ -41,7 +41,7 @@ public class CreateBucket extends baseClass{
 	 driver.findElement(CBucket).click();
 	 Thread.sleep(3000);
 	 driver.findElement(RadioButton).click();
-	 driver.findElement(smartBucketName).sendKeys("ceph-0009");
+	 driver.findElement(smartBucketName).sendKeys("ceph-00013");
 //	// Actions action = new Actions(driver);
 //	// action.doubleClick(ele).build().perform();
 	WebElement Storagetype= driver.findElement(cloudstorage);
@@ -51,7 +51,7 @@ public class CreateBucket extends baseClass{
 	 Select selstorage=new Select(providertype);
 	 selstorage.selectByIndex(1);
 WebElement	element= driver.findElement(By.xpath("//input[@ng-model='bnbucket']"));
-element.sendKeys("ceph-cloud-0009");
+element.sendKeys("ceph-cloud-00013");
 String text = element.getAttribute("value");
 System.out.println("**********************");
 System.out.println("Bucket name is"+text);
@@ -61,9 +61,9 @@ driver.findElement(savebutton).click();
 	 driver.switchTo().alert().accept();
 	 Thread.sleep(3000);
 	 
- WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-0009')]"));
-// out.click();
-// System.out.println(out+"Ceph bucket created successfully");
+ WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-00013')]"));
+ out.click();
+ System.out.println(out+"Ceph bucket created successfully");
 	  }
 	
 //	 public void exit()
@@ -72,6 +72,35 @@ driver.findElement(savebutton).click();
 //	  }
 	  @Test()
 	  public void deleteCeph() throws InterruptedException, IOException {
+		  System.out.println("**********************");
+			 System.out.println("Check created smart bucket displayed on notification page");
+			 System.out.println("**********************");
+			 driver.findElement(CBucket).click();
+			 Thread.sleep(3000);
+			 driver.findElement(RadioButton).click();
+			 driver.findElement(smartBucketName).sendKeys("ceph-00013");
+//			// Actions action = new Actions(driver);
+//			// action.doubleClick(ele).build().perform();
+			WebElement Storagetype= driver.findElement(cloudstorage);
+			Select select=new Select(Storagetype);
+			select.selectByIndex(3);
+		    WebElement	providertype= driver.findElement(ProviderName);
+			 Select selstorage=new Select(providertype);
+			 selstorage.selectByIndex(1);
+		WebElement	element= driver.findElement(By.xpath("//input[@ng-model='bnbucket']"));
+		element.sendKeys("ceph-cloud-00013");
+		String text = element.getAttribute("value");
+		System.out.println("**********************");
+		System.out.println("Bucket name is"+text);
+		driver.findElement(savebutton).click();
+			 Thread.sleep(5000);
+			 //System.out.println("Smart bucket created successfully");
+			 driver.switchTo().alert().accept();
+			 Thread.sleep(3000);
+			 
+		 WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-00013')]"));
+		 out.click();
+		 System.out.println(out+"Ceph bucket created successfully");
 		  
 		  System.out.println("Check Ceph bucket is encrypted or decrypted functionality is working ");
 			 System.out.println("**********************");
@@ -104,14 +133,17 @@ driver.findElement(savebutton).click();
 	}else {
 		System.out.println("Ceph Bucket is encrypted ");
 	}
-	//WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-0009')]"));
-	// out.click();
+	WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-00013')]"));
+	 out.click();
 	 Thread.sleep(2000);
-	// driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//	Thread.sleep(3000);
-//	 WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//			uploadElement.click();
-//	 uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+	 WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+	 uploadElement.click();
+	 uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+	Thread.sleep(3000);
+	// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+			uploadElement.click();
+	// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+			driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 	}
 	  
 	  @Test()
@@ -189,11 +221,14 @@ driver.findElement(savebutton).click();
 	WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-002')]"));
 	 out.click();
 	 Thread.sleep(2000);
-	 driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//	Thread.sleep(3000);
-//	 WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//			uploadElement.click();
-//	 uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+	 WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+	 uploadElement.click();
+	 uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+	Thread.sleep(3000);
+	// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+			uploadElement.click();
+	// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+			driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 	}
 
 @Test()
@@ -301,12 +336,14 @@ if(encry.isEnabled()) {
 WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-02')]"));
 out.click();
 Thread.sleep(2000);
-driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//Thread.sleep(3000);
-//WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//		uploadElement.click();
-//uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
-}
+WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+uploadElement.click();
+uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+Thread.sleep(3000);
+// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+		uploadElement.click();
+// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();}
 
 //public void exit()
 //{
@@ -406,11 +443,14 @@ if(encry.isEnabled()) {
 WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-01')]"));
 out.click();
 Thread.sleep(2000);
-driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//Thread.sleep(3000);
-//WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//		uploadElement.click();
-//uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+uploadElement.click();
+uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+Thread.sleep(3000);
+// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+		uploadElement.click();
+// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 }
 
 @Test()
@@ -421,7 +461,7 @@ System.out.println("**********************");
 driver.findElement(CBucket).click();
 Thread.sleep(3000);
 driver.findElement(RadioButton).click();
-driver.findElement(smartBucketName).sendKeys("ceph-0009");
+driver.findElement(smartBucketName).sendKeys("ceph-00011");
 //// Actions action = new Actions(driver);
 //// action.doubleClick(ele).build().perform();
 WebElement Storagetype= driver.findElement(cloudstorage);
@@ -442,7 +482,7 @@ Thread.sleep(5000);
 driver.switchTo().alert().accept();
 Thread.sleep(3000);
 
-WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-0009')]"));
+WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-00010')]"));
 //out.click();
 //System.out.println(out+"Ceph Encrypted bucket created successfully");
 }
@@ -485,14 +525,17 @@ if(encry.isEnabled()) {
 }else {
 	System.out.println("Ceph Bucket is not encrypted ");
 }
-//WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-0009')]"));
+//WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-00010')]"));
 // out.click();
 Thread.sleep(2000);
-// driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//Thread.sleep(3000);
-//WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//		uploadElement.click();
-//uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+uploadElement.click();
+uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+Thread.sleep(3000);
+// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+		uploadElement.click();
+// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 }
 
 @Test()
@@ -604,10 +647,14 @@ WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ceph-002')]
 out.click();
 Thread.sleep(2000);
 driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//Thread.sleep(3000);
-//WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//		uploadElement.click();
-//uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+uploadElement.click();
+uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+Thread.sleep(3000);
+// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+		uploadElement.click();
+// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 }
 
 @Test()
@@ -718,10 +765,14 @@ WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-02')]")
 out.click();
 Thread.sleep(2000);
 driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//Thread.sleep(3000);
-//WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//	uploadElement.click();
-//uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+uploadElement.click();
+uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+Thread.sleep(3000);
+// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+		uploadElement.click();
+// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 }
 
 //public void exit()
@@ -824,10 +875,14 @@ WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-01')]")
 out.click();
 Thread.sleep(2000);
 driver.findElement(By.xpath("//button[@class='btn btn_blue'][contains(text(),'Upload')]")).click();
-//Thread.sleep(3000);
-//WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
-//	uploadElement.click();
-//uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
+uploadElement.click();
+uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+Thread.sleep(3000);
+// WebElement uploadElement= driver.findElement(By.xpath("//label[@class='file_upload_label']"));
+		uploadElement.click();
+// uploadElement.sendKeys("C:\\Users\\puja.domke\\Desktop\\allTest.java");
+		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 }
 
 }

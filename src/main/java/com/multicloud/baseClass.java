@@ -52,12 +52,12 @@ public class baseClass implements ITestListener {
 //      bs.volume();
      // call CreateBucket
         CreateBucket	bucket=  new  CreateBucket(driver);
-        bucket.EncryptedbucketCeph();
+       // bucket.EncryptedbucketCeph();
      
        // bucket.existingbucket();
-      //  bucket.bucketCeph();
+        bucket.bucketCeph();
       //  bucket.deleteCeph();
-      //  bucket.uploadCeph();
+        bucket.uploadCeph();
        // bucket.bucketIBM();
 //        bucket.uploadIBM();
 //        bucket.existingbucketCeph();
