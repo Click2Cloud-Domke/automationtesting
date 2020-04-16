@@ -41,41 +41,47 @@ public class baseClass implements ITestListener {
 	  driver = new ChromeDriver();
 	 // driver.get("192.168.3.235:30510");
 	  Thread.sleep(2000);
-		driver.get("http://192.168.3.235:30010/");
-	//driver.get("https://test.click2yun.com/");
+	//	driver.get("http://192.168.3.235:30010/");
+	driver.get("http://192.168.3.9:3000/");
+	
 	  driver.manage().window().maximize();
+	
 	  HomePage multi=new HomePage(driver);
-      multi.Login("tester", "Newuser@123");
+     // multi.Login("tester", "Newuser@123");
+	  multi.Login("developer", "Click2cloud");
   //  multi.dashboard();
       multi.storage();
 //      Blockstorage bs = new Blockstorage(driver);
 //      bs.volume();
      // call CreateBucket
         CreateBucket	bucket=  new  CreateBucket(driver);
-       // bucket.EncryptedbucketCeph();
-     
-       // bucket.existingbucket();
-        bucket.bucketCeph();
-      //  bucket.deleteCeph();
-        bucket.uploadCeph();
-       // bucket.bucketIBM();
-//        bucket.uploadIBM();
-//        bucket.existingbucketCeph();
-//        bucket.uploadExistingCeph();
-       //bucket.existingbucketIBM();
+        bucket.EncryptedbucketCeph();
+      //  bucket.bucketCeph();
+       // bucket.deleteCeph();
+      //  bucket.uploadCeph();
+        
+        
+        bucket.bucketIBM();
+        bucket.uploadIBM();
+      bucket.existingbucketCeph();
+        bucket.deleteExistingCeph();
+      bucket.uploadExistingCeph();
+      bucket.existingbucketIBM();
         
       //  bucket.exit();
           
            //call Migration
 //          Migration mg=new Migration(driver);         
 //         mg.ImmediateMigration();
+        
+        ACL acl=new ACL(driver);
           
-      
+       
 	  }
 	  @Test
 	  public void testclass() throws InterruptedException{
 	  }
-      @BeforeClass(enabled=false)
+      @BeforeClass(enabled=true)
   	public void extend() {
   		htmlreport = new ExtentHtmlReporter(System.getProperty("user.dir")+"\\ExtentReportResults.html");
   		htmlreport.config().setDocumentTitle("Automation report");
@@ -96,13 +102,13 @@ public class baseClass implements ITestListener {
 //  		 public void endReport() {
 //  		  extent.flush();
   		 //}
-  		 @AfterMethod(enabled=false)
+  		 @AfterMethod(enabled=true)
 		 public void tearDown(ITestResult result) throws IOException {
 		  if (result.getStatus() == ITestResult.FAILURE) {
 		   test.log(Status.FAIL, "TEST CASE FAILED IS " + result.getName()); // to add name in extent report
 		   test.log(Status.FAIL, "TEST CASE FAILED IS " + result.getThrowable()); // to add error/exception in extent report
 		   String screenshotPath = baseClass.getScreenshot(driver, result.getName());
-		   test.addScreenCaptureFromPath(screenshotPath);// adding screen shot
+		   test.addScreenCaptureFromPath("//.png");// adding screen shot
 		  } else if (result.getStatus() == ITestResult.SKIP) {
 		   test.log(Status.SKIP, "Test Case SKIPPED IS " + result.getName());
 		  }
