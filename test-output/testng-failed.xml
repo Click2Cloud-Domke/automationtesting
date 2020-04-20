@@ -5,9 +5,6 @@
     <classes>
       <class name="com.multicloud.baseClass">
         <methods>
-          <include name="testclass"/>
-          <include name="tearDown"/>
-          <include name="extend"/>
           <include name="baseclass"/>
         </methods>
       </class> <!-- com.multicloud.baseClass -->
