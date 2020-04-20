@@ -28,7 +28,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class baseClass implements ITestListener {
+public class baseClass extends ExtentReporterNG {
 	
 	static WebDriver driver;
   @Test()

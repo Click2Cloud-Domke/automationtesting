@@ -23,7 +23,7 @@ public class ExtentReporterNG implements IReporter {
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
 			String outputDirectory) {
 		extent = new ExtentReports(outputDirectory + File.separator
-				+ "Extent.html", true);
+				+ "multicloudtestresult.html", true);
 
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
@@ -47,7 +47,7 @@ public class ExtentReporterNG implements IReporter {
 		if (tests.size() > 0) {
 			for (ITestResult result : tests.getAllResults()) {
 				test = extent.startTest(result.getMethod().getMethodName());
-
+                       extent.getClass();
 				test.setStartedTime(getTime(result.getStartMillis()));
 				test.setEndedTime(getTime(result.getEndMillis()));
 

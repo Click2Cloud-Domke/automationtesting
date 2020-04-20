@@ -18,8 +18,13 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class CreateBucketceph extends baseClass{
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
+public class CreateBucketceph extends baseClass {
 	WebDriver driver;
+	ExtentReports extent;
+	ExtentTest test;
 	//create Bucket
 	By CBucket=By.xpath("//div[@class='box12 boxClick storageBox']//img[@class='add_img']");
 	By smartBucketName=By.xpath("//ng-form[@name='cloud']//input[@placeholder='Enter Bucket Name']");
@@ -31,6 +36,7 @@ public class CreateBucketceph extends baseClass{
 	By addtab=By.xpath("//div[@class='box12 boxClick migrationBox boxClick1']//img[@class='add_img']");
 	By Create=By.xpath("//div[@class='tab_container mg_tab_container']//button[@class='btn btn_blue'][contains(text(),'Create')]");
 //	By PlanName=By.xpath();
+
 	public CreateBucketceph(WebDriver driver) {
 		this.driver=driver; 
 		
@@ -38,6 +44,7 @@ public class CreateBucketceph extends baseClass{
 	
 	  @Test(priority=0)
 	  public void bucketCeph() throws InterruptedException, IOException {
+	
 	 System.out.println("Check created smart bucket displayed on notification page");
 	 System.out.println("**********************");
 	 driver.findElement(CBucket).click();
