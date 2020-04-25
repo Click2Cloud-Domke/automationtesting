@@ -26,7 +26,7 @@ import org.openqa.selenium.WebElement;
 			this.driver=driver; 
 			
 		}
-		@Test(priority=0)
+		@Test(alwaysRun = true,priority=0)
 		public void bucketIBM() throws InterruptedException, IOException {
 			System.out.println("**********************");
 			 System.out.println("Check created smart bucket displayed on notification page");
@@ -34,7 +34,7 @@ import org.openqa.selenium.WebElement;
 			 driver.findElement(CBucket).click();
 			 Thread.sleep(3000);
 			 driver.findElement(RadioButton).click();
-			 driver.findElement(smartBucketName).sendKeys("ibm-0020");
+			 driver.findElement(smartBucketName).sendKeys("ibm-0032");
 			// Actions action = new Actions(driver);
 			// action.doubleClick(ele).build().perform();
 			WebElement Storagetype= driver.findElement(cloudstorage);
@@ -44,7 +44,7 @@ import org.openqa.selenium.WebElement;
 			 Select selstorage=new Select(providertype);
 			 selstorage.selectByIndex(1);
 		WebElement	element= driver.findElement(By.xpath("//input[@ng-model='bnbucket']"));
-		element.sendKeys("ibm-cloud-0193");
+		element.sendKeys("ibm-cloud-02003");
 		String text = element.getAttribute("value");
 		System.out.println("**********************");
 		System.out.println("Bucket name is"+text);
@@ -55,9 +55,10 @@ import org.openqa.selenium.WebElement;
 			 driver.switchTo().alert().accept();
 			 Thread.sleep(3000);
 			 
-		WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-0020')]"));
-		out.click();
-		System.out.println(out+"IBM bucket created successfully");}
+		//WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-0032')]"));
+		//out.click();
+		//System.out.println(out+"IBM bucket created successfully");
+			 }
 
 		@Test(priority=1)
 		public void deleteIbm() throws InterruptedException, IOException {
@@ -74,7 +75,7 @@ import org.openqa.selenium.WebElement;
 				driver.switchTo().alert().accept();
 				//System.out.println("Bucket deleted successfully");
 		}
-		@Test(priority=2)
+		@Test(alwaysRun = true,priority=2)
 		public void uploadIBM() throws InterruptedException, IOException {
 			  
 		System.out.println("Check IBM bucket is encrypted or decrypted functionality is working ");
@@ -89,7 +90,7 @@ import org.openqa.selenium.WebElement;
 			System.out.println("Ibm Bucket is encrypted ");
 		}
 
-		WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-0020')]"));
+		WebElement out = driver.findElement(By.xpath("//div[contains(text(),'ibm-0032')]"));
 		 out.click();
 		 Thread.sleep(2000);
 		 WebElement uploadElement= driver.findElement(By.xpath("//button[@name='uploadTab']"));
@@ -102,14 +103,15 @@ import org.openqa.selenium.WebElement;
 		// Runtime.getRuntime().exec("C:\\Users\\puja.domke\\Documents\\puja\\autoit\\FileUpload.exe");
 		 Thread.sleep(1000);
 		 Runtime.getRuntime().exec("C:\\Users\\puja.domke\\Documents\\puja\\autoit\\FileUpload.exe");
-		driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();
 		Thread.sleep(3000);
 		System.out.println(driver.switchTo().alert().getText());
 		driver.switchTo().alert().accept();
 		//System.out.println("Object uploaded successfully ");
 		}
 
-		@Test(priority=3)
+		@Test(alwaysRun = true,priority=3)
 		public void existingbucketIBM() throws InterruptedException, IOException {
 		System.out.println("Check created existing bucket displayed on notification page");
 		driver.findElement(CBucket).click();
@@ -139,7 +141,7 @@ import org.openqa.selenium.WebElement;
 
 
 		}
-		@Test(priority=4)
+		@Test(alwaysRun = true,priority=4)
 		public void deleteExistingIbm() throws InterruptedException, IOException {
 			
 			
@@ -152,7 +154,7 @@ import org.openqa.selenium.WebElement;
 				driver.switchTo().alert().accept();
 				System.out.println("Bucket deleted successfully");
 		}
-		@Test(priority=5)
+		@Test(alwaysRun = true,priority=5)
 		public void uploadexistingIBM() throws InterruptedException, IOException {
 			  
 		System.out.println("Check IBM bucket is encrypted or decrypted functionality is working ");
@@ -186,7 +188,7 @@ import org.openqa.selenium.WebElement;
 		//System.out.println("Object uploaded successfully ");
 		}
 	  
-	  @Test(priority=6)
+	  @Test(alwaysRun = true,priority=6)
 	  public void EncryptedbucketIBM() throws InterruptedException, IOException {
 	  System.out.println("**********************");
 	  System.out.println("Check created smart bucket displayed on notification page");
@@ -221,7 +223,7 @@ import org.openqa.selenium.WebElement;
 	  System.out.println(out+"bucket created successfully");
 	  }
 
-	  @Test(priority=7)
+	  @Test(alwaysRun = true,priority=7)
 	  public void EncrypteddeleteIbm() throws InterruptedException, IOException {
 
 	  	//delete operation
@@ -233,7 +235,7 @@ import org.openqa.selenium.WebElement;
 	  	driver.switchTo().alert().accept();
 	  	System.out.println("Bucket deleted successfully");
 	  }
-	  @Test(priority=8)
+	  @Test(alwaysRun = true,priority=8)
 	  public void EncrypteduploadIBM() throws InterruptedException, IOException {
 
 	  System.out.println("Check IBM bucket is encrypted or decrypted functionality is working ");
@@ -259,6 +261,7 @@ import org.openqa.selenium.WebElement;
 		WebElement file =driver.findElement(By.xpath("//label[@class='file_upload_label']"));
 		file.click();
 		driver.switchTo() .activeElement().sendKeys("C:\\Users\\puja.domke\\Desktop\\Screenshot_1.png");
+		Thread.sleep(1000);	
 		Runtime.getRuntime().exec("C:\\Users\\puja.domke\\Documents\\puja\\autoit\\FileUpload.exe");
 		
 		// Runtime.getRuntime().exec("C:\\Users\\puja.domke\\Documents\\puja\\autoit\\FileUpload.exe");
@@ -271,7 +274,7 @@ import org.openqa.selenium.WebElement;
 
 	  
 
-	  @Test(priority=9)
+	  @Test(alwaysRun = true,priority=9)
 	  public void EncryptedExistingbucketIBM() throws InterruptedException, IOException {
 	  System.out.println("Check created existing bucket displayed on notification page");
 	  driver.findElement(CBucket).click();
@@ -302,7 +305,7 @@ import org.openqa.selenium.WebElement;
 
 
 	  }
-	  @Test(priority=10)
+	  @Test(alwaysRun = true,priority=10)
 	  public void deleteEncryptedExistingIbm() throws InterruptedException, IOException {
 
 	  	//delete operation
@@ -312,7 +315,7 @@ import org.openqa.selenium.WebElement;
 	  	driver.switchTo().alert().accept();
 	  	System.out.println("Bucket deleted successfully");
 	  }
-	  @Test(priority=11)
+	  @Test(alwaysRun = true,priority=11)
 	  public void uploadEncryptedexistingIBM() throws InterruptedException, IOException {
 
 	  System.out.println("Check IBM bucket is encrypted or decrypted functionality is working ");
@@ -336,7 +339,7 @@ import org.openqa.selenium.WebElement;
 	 WebElement file =driver.findElement(By.xpath("//label[@class='file_upload_label']"));
 	 file.click();
 	 driver.switchTo() .activeElement().sendKeys("C:\\Users\\puja.domke\\Desktop\\Screenshot_1.png");
-
+	 Thread.sleep(1000);
 	  Runtime.getRuntime().exec("C:\\Users\\puja.domke\\Documents\\puja\\autoit\\FileUpload.exe");
 	  Thread.sleep(1000);
 	 driver.findElement(By.xpath("//button[@class='btn mg_submit-btn-green'][contains(text(),'Upload')]")).click();

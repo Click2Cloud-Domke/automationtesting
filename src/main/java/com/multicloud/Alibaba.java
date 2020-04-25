@@ -25,7 +25,7 @@ public class Alibaba {
 		
 	}
 
-@Test(priority=0)
+@Test(alwaysRun = true,priority=0)
 public void bucketalibaba() throws InterruptedException, IOException {
 	 System.out.println("**********************");
 System.out.println("Check created smart bucket displayed on notification page");
@@ -59,7 +59,7 @@ Thread.sleep(3000);
 //System.out.println(out+"alibaba bucket created successfully");
 }
 
-@Test(priority=1)
+@Test(alwaysRun = true,priority=1)
 public void deletealibaba() throws InterruptedException, IOException {
 	//delete operation
 		driver.findElement(By.xpath("//body/div[@id='center_div']/div[@class='container-fluid C2C_Container CDNoListNav container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-sub-menus']/div[@class='row C2CRowMain1 max-height']/div[@class='col-md-12 C2CTaskbar max-height']/div[@id='main-content']/div[@class='col-md-12 C2C_Middle_12']/div[@id='StorageID']/div/div[@class='container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-sub-menus']/div[@id='main-content']/div[@class='col-md-12']/div[@class='top_header']/div[@class='row']/div[@class='col-md-12 col-xs-12 col-sm-12']/div[@class='row']/div[@class='col-md-12']/div[@class='tab-content']/div[@id='TAB1']/div[@class='row']/div[@class='col-md-12']/div[@class='storage_container']/div[@class='row']/div[@class='storage_container_main']/div[@class='col-md-10 col-sm-10 col-xs-10 RightSection storageCreation']/div[@class='storage_container_right']/div[@class='row']/div[@class='storage_box_container']/div[@class='storage_box_parent cust_box_parent']/div[1]/div[1]/div[2]/div[4]/a[1]")).click();
@@ -71,7 +71,7 @@ public void deletealibaba() throws InterruptedException, IOException {
 	//	System.out.println("Bucket deleted successfully");
 }
 
-@Test(priority=2)
+@Test(alwaysRun = true,priority=2)
 public void uploadalibaba() throws InterruptedException, IOException {
 	  
 System.out.println("Check alibaba bucket is encrypted or decrypted functionality is working ");
@@ -107,7 +107,7 @@ driver.switchTo().alert().accept();
 //System.out.println("Object uploaded successfully ");
 }
 
-@Test(priority=3)
+@Test(alwaysRun = true,priority=3)
 public void existingbucketalibaba() throws InterruptedException, IOException {
 System.out.println("Check created existing alibaba bucket displayed on notification page");
 driver.findElement(CBucket).click();
@@ -143,7 +143,7 @@ Thread.sleep(3000);
 
 
 }
-@Test(priority=4)
+@Test(alwaysRun = true,priority=4)
 public void deleteExistingalibaba() throws InterruptedException, IOException {
 	  System.out.println("Check alibaba bucket is encrypted or decrypted functionality is working ");
 		 System.out.println("**********************");
@@ -164,7 +164,7 @@ public void deleteExistingalibaba() throws InterruptedException, IOException {
 		driver.switchTo().alert().accept();
 		//System.out.println("Bucket deleted successfully");
 }
-@Test(priority=5)
+@Test(alwaysRun = true,priority=5)
 public void uploadExistingalibaba() throws InterruptedException, IOException {
 	  
 System.out.println("Check alibaba bucket is encrypted or decrypted functionality is working ");
@@ -202,7 +202,7 @@ System.out.println(driver.switchTo().alert().getText());
 driver.switchTo().alert().accept();
 //System.out.println("Object uploaded successfully ");
 }
-@Test(priority=6)
+@Test(alwaysRun = true,priority=6)
 public void Encryptedbucketalibaba() throws InterruptedException, IOException {
 	  System.out.println("**********************");
 System.out.println("Check Encrypted smart bucket displayed on notification page");
@@ -241,7 +241,7 @@ WebElement out = driver.findElement(By.xpath("//div[contains(text(),'alibabaencr
 //{
 //	  driver.quit();
 //}
-@Test(priority=7)
+@Test(alwaysRun = true,priority=7)
 public void deleteEncryptedbucketalibaba() throws InterruptedException, IOException {
 	  
 	  System.out.println("Check alibaba bucket is encrypted or decrypted functionality is working ");
@@ -263,7 +263,7 @@ public void deleteEncryptedbucketalibaba() throws InterruptedException, IOExcept
 		driver.switchTo().alert().accept();
 		System.out.println("Bucket deleted successfully");
 }
-@Test(priority=8)
+@Test(alwaysRun = true,priority=8)
 public void encrypteduploadalibaba() throws InterruptedException, IOException {
 	  
 System.out.println("Check alibaba bucket is encrypted or decrypted functionality is working ");
@@ -296,7 +296,7 @@ driver.switchTo().alert().accept();
 //System.out.println("Object uploaded successfully ");
 }
 
-@Test(priority=9)
+@Test(alwaysRun = true,priority=9)
 public void encryptedExistingbucketalibaba() throws InterruptedException, IOException {
 System.out.println("Check created existing alibaba bucket displayed on notification page");
 driver.findElement(CBucket).click();
@@ -337,7 +337,7 @@ out.click();
 System.out.println(out+"alibaba bucket created successfully");
 
 }
-@Test(priority=10)
+@Test(alwaysRun = true,priority=10)
 public void deleteEncryptedExistingalibaba() throws InterruptedException, IOException {
 	//delete operation
 		driver.findElement(By.xpath("//body/div[@id='center_div']/div[@class='container-fluid C2C_Container CDNoListNav container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-sub-menus']/div[@class='row C2CRowMain1 max-height']/div[@class='col-md-12 C2CTaskbar max-height']/div[@id='main-content']/div[@class='col-md-12 C2C_Middle_12']/div[@id='StorageID']/div/div[@class='container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-sub-menus']/div[@id='main-content']/div[@class='col-md-12']/div[@class='top_header']/div[@class='row']/div[@class='col-md-12 col-xs-12 col-sm-12']/div[@class='row']/div[@class='col-md-12']/div[@class='tab-content']/div[@id='TAB1']/div[@class='row']/div[@class='col-md-12']/div[@class='storage_container']/div[@class='row']/div[@class='storage_container_main']/div[@class='col-md-10 col-sm-10 col-xs-10 RightSection storageCreation']/div[@class='storage_container_right']/div[@class='row']/div[@class='storage_box_container']/div[@class='storage_box_parent cust_box_parent']/div[1]/div[1]/div[2]/div[4]/a[1]")).click();
@@ -348,7 +348,7 @@ public void deleteEncryptedExistingalibaba() throws InterruptedException, IOExce
 		driver.switchTo().alert().accept();
 		System.out.println("Bucket deleted successfully");
 }
-@Test(priority=11)
+@Test(alwaysRun = true,priority=11)
 public void uploadEncryptedExistingalibaba() throws InterruptedException, IOException {  
 System.out.println("Check alibaba bucket is encrypted or decrypted functionality is working ");
 System.out.println("**********************");

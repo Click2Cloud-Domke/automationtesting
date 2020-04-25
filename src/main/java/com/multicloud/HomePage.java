@@ -37,10 +37,13 @@ public class HomePage extends baseClass {
 	By Skey=By.xpath("//input[2]");
 	By region=By.xpath("//select[@id='form_destination_region']");
 	By validate=By.xpath("//button[@class='btn mg_validate-btn mg_margin-r-5']");
-	public HomePage(WebDriver driver) {
-		this.driver=driver; 
-		}
-  @Test(priority=0)
+	
+	
+
+  public HomePage(WebDriver driver) {
+	  this.driver=driver; 
+	}
+@Test(alwaysRun=true,priority=0,description = "Login to cloudbrain")
   public void Login(String UN,String PS) throws InterruptedException {
 	  Thread.sleep(5000);
 	  driver.findElement(By.xpath("//i[@class='fa fa-chevron-down']")).click();
@@ -53,7 +56,7 @@ public class HomePage extends baseClass {
 	  System.out.println("Dashboard title is"+ driver.getTitle());
 	      Thread.sleep(2000);
   }
- @Test(priority=1)
+ @Test(alwaysRun=true,priority=1,description = "object storage navigation")
   public void storage() throws InterruptedException {
 	  Thread.sleep(3000);
 	  driver.findElement(Storage).click();
@@ -78,10 +81,22 @@ public class HomePage extends baseClass {
 	  Select reg = new Select( driver.findElement(region));
 	   reg.selectByIndex(2);
 	   driver.findElement(validate).click();
+	   
 
 	
 	
   }
+ @Test(alwaysRun=true,priority=2,description = "block storage navigation")
+ public void blockstorage() throws InterruptedException {
+	 Thread.sleep(3000);
+	  driver.findElement(Storage).click();
+	WebElement ele=driver.findElement(By.xpath("//span[contains(text(),'Block Storage')]"));
+		Actions act=new Actions(driver);
+	    Thread.sleep(5000);
+	    act.moveToElement(ele).click().perform();
+	    Thread.sleep(3000);
+	 
+ }
 
   
   

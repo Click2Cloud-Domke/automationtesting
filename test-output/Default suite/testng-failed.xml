@@ -3,11 +3,21 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.multicloud.baseClass">
+      <class name="com.multicloud.BlockstorageTest">
         <methods>
-          <include name="baseclass"/>
+          <include name="createhost"/>
+          <include name="EditVolume"/>
+          <include name="appdeployment"/>
+          <include name="detach"/>
+          <include name="beforeTest"/>
+          <include name="setup"/>
+          <include name="afterSuite"/>
+          <include name="attach"/>
+          <include name="DeleteSnapshot"/>
+          <include name="snapshot"/>
+          <include name="AddVolume"/>
         </methods>
-      </class> <!-- com.multicloud.baseClass -->
+      </class> <!-- com.multicloud.BlockstorageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

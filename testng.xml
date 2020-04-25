@@ -8,8 +8,10 @@
   
     <classes>
       
-      <class name="com.multicloud.baseClass"/>
-      
+      <class name="com.multicloud.BlockstorageTest"/>
+      <class name="com.multicloud.CreateBucketawsTest"/>
+      <class name="com.multicloud.LifecycleTest"/>
+      <class name="com.multicloud.MigrationTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

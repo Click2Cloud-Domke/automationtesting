@@ -6,11 +6,32 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.multicloud.baseClass">
+      <class name="com.multicloud.LifecycleTest">
         <methods>
-          <include name="baseclass"/>
+          <include name="lifecycledelete"/>
+          <include name="lifecyclecreate"/>
+          <include name="deleteobject"/>
+          <include name="lifecycledeleteobject"/>
+          <include name="lifecycle"/>
         </methods>
-      </class> <!-- com.multicloud.baseClass -->
+      </class> <!-- com.multicloud.LifecycleTest -->
+      <class name="com.multicloud.BlockstorageTest">
+        <methods>
+          <include name="blockstorage"/>
+          <include name="detach"/>
+          <include name="beforeTest"/>
+          <include name="setup"/>
+          <include name="afterSuite"/>
+          <include name="AddStorage"/>
+          <include name="attach"/>
+          <include name="snapshot"/>
+          <include name="createhost"/>
+          <include name="EditVolume"/>
+          <include name="appdeployment"/>
+          <include name="DeleteSnapshot"/>
+          <include name="AddVolume"/>
+        </methods>
+      </class> <!-- com.multicloud.BlockstorageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
