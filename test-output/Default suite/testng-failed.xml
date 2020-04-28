@@ -6,12 +6,13 @@
       <class name="com.multicloud.BlockstorageTest">
         <methods>
           <include name="createhost"/>
-          <include name="EditVolume"/>
+          <include name="DeleteVolume"/>
           <include name="appdeployment"/>
           <include name="detach"/>
           <include name="beforeTest"/>
           <include name="setup"/>
           <include name="afterSuite"/>
+          <include name="AddStorage"/>
           <include name="attach"/>
           <include name="DeleteSnapshot"/>
           <include name="snapshot"/>

@@ -36,5 +36,6 @@
 	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/chromedriver_win32_new.zip"/>
 	<classpathentry kind="lib" path="C:/Users/puja.domke/Documents/puja/Opensds-documents/extentreports-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/puja.domke/Desktop/extentreports-java-2.41.2.zip"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

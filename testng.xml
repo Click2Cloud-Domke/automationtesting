@@ -7,9 +7,8 @@
   <test thread-count="5" name="Test">
   
     <classes>
-      
       <class name="com.multicloud.BlockstorageTest"/>
-      <class name="com.multicloud.CreateBucketawsTest"/>
+     <class name="com.multicloud.CreateBucketawsTest"/>
       <class name="com.multicloud.LifecycleTest"/>
       <class name="com.multicloud.MigrationTest"/>
     </classes>

@@ -6,32 +6,39 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.multicloud.LifecycleTest">
+      <class name="com.multicloud.CreateBucketawsTest">
         <methods>
-          <include name="lifecycledelete"/>
-          <include name="lifecyclecreate"/>
-          <include name="deleteobject"/>
-          <include name="lifecycledeleteobject"/>
-          <include name="lifecycle"/>
+          <include name="uploadExistingaws"/>
+          <include name="uploadEncryptedExistingaws"/>
+          <include name="encryptedExistingbucketaws"/>
+          <include name="uploadaws"/>
+          <include name="Encryptedbucketaws"/>
+          <include name="setup"/>
+          <include name="ImmediateMigrationCephtoIBM"/>
+          <include name="existingbucketaws"/>
+          <include name="afterSuite"/>
+          <include name="encrypteduploadaws"/>
         </methods>
-      </class> <!-- com.multicloud.LifecycleTest -->
+      </class> <!-- com.multicloud.CreateBucketawsTest -->
       <class name="com.multicloud.BlockstorageTest">
         <methods>
-          <include name="blockstorage"/>
+          <include name="AddSnapshot"/>
+          <include name="DeleteVolume"/>
+          <include name="appdeployment"/>
           <include name="detach"/>
           <include name="beforeTest"/>
           <include name="setup"/>
           <include name="afterSuite"/>
-          <include name="AddStorage"/>
-          <include name="attach"/>
-          <include name="snapshot"/>
-          <include name="createhost"/>
-          <include name="EditVolume"/>
-          <include name="appdeployment"/>
           <include name="DeleteSnapshot"/>
-          <include name="AddVolume"/>
         </methods>
       </class> <!-- com.multicloud.BlockstorageTest -->
+      <class name="com.multicloud.LifecycleTest">
+        <methods>
+          <include name="lifecycledelete"/>
+          <include name="setup"/>
+          <include name="lifecycledeleteobject"/>
+        </methods>
+      </class> <!-- com.multicloud.LifecycleTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

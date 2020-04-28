@@ -5,12 +5,15 @@ import org.testng.annotations.BeforeTest;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 
 public class BlockstorageTest {
@@ -39,22 +42,22 @@ public class BlockstorageTest {
 		  driver = new ChromeDriver();
 		 // driver.get("192.168.3.235:30510");
 		  Thread.sleep(2000);
-			driver.get("http://192.168.3.235:30010/");
-		//driver.get("http://192.168.3.9:3000/");
+			//driver.get("http://192.168.3.235:30010/");
+		driver.get("http://192.168.3.9:3000/");
 		  driver.manage().window().maximize();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  Thread.sleep(5000);
 		  driver.findElement(By.xpath("//i[@class='fa fa-chevron-down']")).click();
 	      Thread.sleep(3000);
-	      driver.findElement(By.id("user_name")).sendKeys("tester");
-		  driver.findElement(By.id("user_password")).sendKeys("Newuser@123");
+	      driver.findElement(By.id("user_name")).sendKeys("developer");
+		  driver.findElement(By.id("user_password")).sendKeys("Click2cloud");
 		  driver.findElement(Lbutton).click();
 		  Thread.sleep(3000);
 		  System.out.println("Login successfully");
 		  System.out.println("Dashboard title is"+ driver.getTitle());
 		      Thread.sleep(2000);
 	 }
-  @Test()
+  @Test(alwaysRun = true,priority = 1,description="move to block storage")
   public void  blockstorage() throws InterruptedException {
 	  Thread.sleep(4000);
 	  driver.findElement(By.xpath("//a[@class='sidemenuanchor active ignore-click']//span[@class='list-group-item-value'][contains(text(),'Storage')]")).click();
@@ -65,13 +68,15 @@ public class BlockstorageTest {
 	    Thread.sleep(3000);
 	  
   }
-  @Test(alwaysRun = true,priority = 2)
+  @Test(alwaysRun = true,priority = 2,description="Add storage into ceph")
   public  void AddStorage() throws InterruptedException
-      {  Thread.sleep(2000);
+      {  
+	  Thread.sleep(3000);
+      
    WebElement storage = driver.findElement(By.xpath("//select[@id='storageTypeDropdown1']"));
           storage.click();
   		 Select drpstorage = new Select(storage); 
-          Thread.sleep(2000);
+          Thread.sleep(4000);
           drpstorage.selectByIndex(1);
           Thread.sleep(2000);
           driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -80,26 +85,29 @@ public class BlockstorageTest {
   @Test(alwaysRun=true,priority = 3)
   public  void AddVolume() throws InterruptedException
       {
+	  Thread.sleep(3000);
          driver.findElement(By.xpath("//i[@id='addVolumeBtn']")) .click();
-  	  Thread.sleep(1000);
-         driver.findElement(By.xpath("//*[@id='volume-name']")).sendKeys("create-volume712");
+  	  Thread.sleep(3000);
+         driver.findElement(By.xpath("//*[@id='volume-name']")).sendKeys("create-vol0212");
           System.out.println("Enter Volume Name");
-          Thread.sleep(2000);
-          driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("5");
+          Thread.sleep(4000);
+          driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("1");
           System.out.println("Enter Volume Size");
-          Thread.sleep(2000);
+          Thread.sleep(5000);
           driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[17]/div/input[1]")).click();
-          Thread.sleep(3000);
+          Thread.sleep(5000);
           driver.findElement(By.xpath("//div[@id='exampleModalLongSuccess']//div//div//div//button[contains(text(),'OK')]")).click();
-          Thread.sleep(3000);
+          Thread.sleep(5000);
       }
-  @Test(alwaysRun=true,priority = 4)
+ // @Test(alwaysRun=true,priority = 4)
   public  void EditVolume() throws InterruptedException
       {
-          driver.findElement(By.xpath("//*[@id='volume-name']")).sendKeys("volume-test3");
+	  Thread.sleep(3000);
+	 
+          driver.findElement(By.xpath("//*[@id='volume-name']")).sendKeys("volume-test81");
           System.out.println("Enter Volume Name");
           Thread.sleep(2000);
-          driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("5");
+          driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("2");
           System.out.println("Enter Volume Size");
           Thread.sleep(2000);
           driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[17]/div/input[1]")).click();
@@ -134,9 +142,11 @@ public class BlockstorageTest {
           Thread.sleep(5000);
                       
       }
- // @Test(alwaysRun = true,priority = 4)
+  @Test(alwaysRun = true,priority = 10)
   public  void DeleteVolume() throws InterruptedException
-      {
+  {Thread.sleep(2000);
+	  	driver.findElement(By.xpath("//a[contains(text(),'Storage +')]")).click();
+	  	Thread.sleep(2000);
       driver.findElement(By.xpath("//*[@id='v-account']")).click();
       Thread.sleep(2000);
       
@@ -158,20 +168,22 @@ public class BlockstorageTest {
       }
 
 
-  @Test(alwaysRun = true,priority = 5)
-  public  void snapshot() throws InterruptedException
+  @Test(priority = 4)
+  public  void AddSnapshot() throws InterruptedException
       {
+	  Thread.sleep(3000);
           driver.findElement(By.xpath("//*[@id='mig_menus']/li[2]/a")).click();
           System.out.println("Go to snapshot tab");
-          Thread.sleep(1000);
-//          driver.switchTo().alert().getText();    
+         Thread.sleep(1000);
+       driver.findElement(By.xpath("//div[@id='exampleModalLongInfo']//div//div//div//button")).click();
+        //          driver.switchTo().alert().getText();    
 //          driver.switchTo().alert().accept();
-//          Thread.sleep(5000);
+          Thread.sleep(5000);
          WebElement type=driver.findElement(By.xpath("//select[@id='sel3']"));
          type.click();
          Select sc=new Select(type);
          sc.selectByIndex(1);
-          driver.findElement(By.xpath("//*[@id='name']")).sendKeys("Test-Snapshot321");
+          driver.findElement(By.xpath("//*[@id='name']")).sendKeys("Test-Snapshot331");
           System.out.println("Enter snapshot name");
           Thread.sleep(2000);
           
@@ -183,34 +195,28 @@ public class BlockstorageTest {
        Thread.sleep(1000);   
       }
   
-  @Test(alwaysRun = true,priority = 6)
+  @Test(alwaysRun = true,priority = 10)
   public  void DeleteSnapshot() throws InterruptedException
-      {
+      {       Thread.sleep(5000);
           driver.findElement(By.xpath("//*[@id='mig_menus']/li[2]/a")).click();
-          System.out.println("Go to snapshot tab");
-          driver.switchTo().alert().getText();    
-          driver.switchTo().alert().accept();
+         
+         
           Thread.sleep(5000);
-          
-          driver.findElement(By.xpath("//*[@id='name']")).sendKeys("Test-Snapshot21");
-          System.out.println("Enter snapshot name");
-          Thread.sleep(2000);
-          
-          driver.findElement(By.xpath("//*[@id='s2']/div/div/div/div[1]/div[3]/div[5]/div/button")).click();
-          System.out.println("Click on Create Snapshot button");
-          driver.switchTo().alert().accept();
-          Thread.sleep(5000);
-          
           driver.findElement(By.xpath("//*[@id='s2']/div/div/div/div[3]/div/div/div/div/div[1]/img")).click();
+          Thread.sleep(2000);
+          driver.switchTo().alert().accept();
+          Thread.sleep(2000);
+          driver.switchTo().alert().accept();
+          
       }
-  @Test(alwaysRun = true,priority = 7)
+  @Test(alwaysRun = true,priority = 5)
   public  void createhost() throws InterruptedException
       {
   Thread.sleep(3000);
-        driver.findElement(By.xpath("//a[contains(text(),'Host')]")).click();
+ driver.findElement(By.xpath("//a[contains(text(),'Host')]")).click();
         driver.findElement(By.xpath("//button[@id='hostCreateBtn']")).click();
-        Thread.sleep(1000);
-  driver.findElement(By.xpath("//input[@name='hostFormName']")).sendKeys("Ceph-host52");
+        Thread.sleep(3000);
+  driver.findElement(By.xpath("//input[@name='hostFormName']")).sendKeys("Ceph-host1123");
   WebElement os = driver.findElement(By.xpath("//select[@id='hostOS']"));
     Select sc=new Select(os);
     sc.selectByIndex(1);
@@ -224,31 +230,43 @@ public class BlockstorageTest {
      System.out.println(driver.switchTo().alert().getText());
      driver.switchTo().alert().accept();
       }
-  @Test(alwaysRun=true,priority = 8)
+  @Test(alwaysRun=true,priority = 7)
   public  void attach() throws InterruptedException
       {
-  	  Thread.sleep(1000);
+  	  Thread.sleep(3000);
   	driver.findElement(By.xpath("//a[contains(text(),'Storage +')]")).click();
   	Thread.sleep(2000);
   	 WebElement storage = driver.findElement(By.xpath("//select[@id='storageTypeDropdown1']"));
        storage.click();
 		 Select drpstorage = new Select(storage); 
-       Thread.sleep(2000);
-       drpstorage.selectByIndex(1);
+		 drpstorage.selectByIndex(1);
+     
        Thread.sleep(2000);
   	driver.findElement(By.xpath("//div[@id='s1']//div//div//div//div//div//div//div//div//div//button[contains(text(),'Attach')]")).click();
   	Thread.sleep(1000);
+  WebElement	volume=driver.findElement(By.xpath("//select[@id='volumeAttach']"));
+  volume.click();
+  Select selectBox = new Select(volume);
+    int selectOptions = selectBox.getOptions().size();
+    selectBox.selectByIndex(selectOptions - 1);
+    
+    WebElement	host=driver.findElement(By.xpath("//select[@id='hostAttach']"));
+    host.click();
+    Select selectBox1 = new Select(host);
+      int selectOptions1 = selectBox1.getOptions().size();
+      selectBox.selectByIndex(selectOptions1 - 1);
+      Thread.sleep(2000);
   	driver.findElement(By.xpath("//div[@id='attachModal']//div//div//div//button[contains(text(),'Attach')]")).click();
   	Thread.sleep(2000);
       System.out.println(driver.switchTo().alert().getText());
   	driver.switchTo().alert().accept();
   	
       }
-  @Test(alwaysRun=true,priority = 9)
+  @Test(alwaysRun=true,priority = 8)
   public  void detach() throws InterruptedException
       {
-  	Thread.sleep(1000);
-	  driver.findElement(By.xpath("//div[@id='s1']//div//div//div//div//div//div//div//div//div//button[contains(text(),'Detach')]")).click();
+  	Thread.sleep(3000);
+	  driver.findElement(By.xpath("//div[@id='s1']//button[2]")).click();
 	  Thread.sleep(2000);
  	 WebElement vol = driver.findElement(By.xpath("//select[@id='detachVolume']"));
       vol.click();
@@ -261,9 +279,10 @@ public class BlockstorageTest {
 		 Thread.sleep(1000);
 		 
   }
-  @Test(alwaysRun=true,priority = 10)
+  @Test(alwaysRun=true,priority = 9)
   public  void appdeployment() throws InterruptedException
       {
+	  Thread.sleep(3000);
 	  driver.findElement(By.xpath("//a[contains(text(),'App Deployment')]")).click();
       driver.findElement(By.xpath("//button[@id='clusterAddBtn']")).click();
     Thread.sleep(4000);  

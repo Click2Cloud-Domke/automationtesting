@@ -46,23 +46,23 @@ By savebutton=By.xpath("//div[@id='TAB_2']//button[@class='btn mg_submit-btn-gre
 	  driver = new ChromeDriver();
 	 // driver.get("192.168.3.235:30510");
 	  Thread.sleep(2000);
-		driver.get("http://192.168.3.235:30010/");
-	//driver.get("http://192.168.3.9:3000/");
+	//	driver.get("http://192.168.3.235:30010/");
+   driver.get("http://192.168.3.9:3000/");
 	  driver.manage().window().maximize();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  Thread.sleep(5000);
 	  driver.findElement(By.xpath("//i[@class='fa fa-chevron-down']")).click();
       Thread.sleep(3000);
-      driver.findElement(By.id("user_name")).sendKeys("tester");
-	  driver.findElement(By.id("user_password")).sendKeys("Newuser@123");
+      driver.findElement(By.id("user_name")).sendKeys("developer");
+	  driver.findElement(By.id("user_password")).sendKeys("Click2cloud");
 	  driver.findElement(Lbutton).click();
 	  Thread.sleep(3000);
 	  System.out.println("Login successfully");
 	  System.out.println("Dashboard title is"+ driver.getTitle());
 	      Thread.sleep(2000);
  }
- @Test(alwaysRun=true,priority=0,description = "object storage navigation")
-  public void storage() throws InterruptedException {
+ @Test(alwaysRun=true,priority=20,description = "object storage navigation")
+  public void Objectstoragelifecycle() throws InterruptedException {
 	  Thread.sleep(3000);
 	  driver.findElement(Storage).click();
 	  WebElement ele=driver.findElement(ObjectStorage);
@@ -72,14 +72,15 @@ By savebutton=By.xpath("//div[@id='TAB_2']//button[@class='btn mg_submit-btn-gre
 	    Thread.sleep(3000);
 	    
   }
-  @Test(priority=1)
+  @Test(priority=21)
   public void lifecycle() throws InterruptedException, IOException {
-	driver.findElement(By.xpath("//div[contains(text(),'aws')]")).click();
+	  Thread.sleep(3000);
+	driver.findElement(By.xpath("//div[contains(text(),'aawsbucket-97')]")).click();
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//a[contains(text(),'LifeCycle')]")).click();
 	Thread.sleep(1000);
 	}
-	@Test(priority=0)
+	@Test(priority=22)
 	  public void lifecyclecreate() throws InterruptedException, IOException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//body//div[@id='main-content']//div[@id='main-content']//div//div//div//div//div//div//li[2]//a[1]")).click();
@@ -98,17 +99,22 @@ Thread.sleep(1000);
 driver.switchTo().alert().getText();
 driver.switchTo().alert().accept();
 }
-@Test(priority=4)
+@Test(priority=25)
   public void deleteobject() throws InterruptedException, IOException {
 	Thread.sleep(1000);
 driver.findElement(By.xpath("//a[contains(text(),'Object')]")).click();
 driver.findElement(By.xpath("//a[@id='deleteObjectID']")).click();
 driver.findElement(By.xpath("//div[@class='actions open']//a[contains(text(),'Delete')]")).click();
-Thread.sleep(1000);
+Thread.sleep(3000);
+driver.switchTo().alert().accept();
+Thread.sleep(2000);
+driver.switchTo().alert().accept();
 driver.findElement(By.xpath("//img[@class='back_img']")).click();
+
 }
-@Test(priority=3)
+@Test(priority=24)
   public void lifecycledeleteobject() throws InterruptedException, IOException {
+	 Thread.sleep(3000);
 	driver.findElement(By.xpath("//div[contains(text(),'aws')]")).click();
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//a[contains(text(),'LifeCycle')]")).click();
@@ -124,14 +130,14 @@ driver.findElement(By.xpath("//div[6]//div[1]//div[1]//label[1]//span[1]")).send
 driver.findElement(By.xpath("//input[@name='deleteDaysAfter']"));
 driver.findElement(By.xpath("//div[@id='lifeCycleModal']//button[@class='btn mg_submit-btn-green'][contains(text(),'Save')]")).click();
 }
-@Test(priority=2)
+@Test(priority=23)
   public void lifecycledelete() throws InterruptedException, IOException {
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 	driver.findElement(By.xpath("//a[@id='lifeCycleDelete']")).click();
 	driver.findElement(By.xpath("//div[@id='tab_lifecycle']//div//div//div//div//div//div//div//div//div//ul[@id='tcodrop']//a")).click();
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 	driver.switchTo().alert().accept();
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 	driver.switchTo().alert().getText();
 	driver.switchTo().alert().accept();
 	
