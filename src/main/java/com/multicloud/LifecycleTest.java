@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 public class LifecycleTest {
   
 static WebDriver driver;
+By html=By.xpath("//body/div[@id='center_div']/div/div/div/div[@id='main-content']/div/div[@id='StorageID']/div/div/div[@id='main-content']/div/div/div/div/div/div/div/div[@id='TAB1']/div/div/div/di"
+		+ "v/div/div[1]/div[1]");
 By i=By.xpath("//i[@class='fa fa-chevron-down']");
 By uname=By.id("user_name");
 By pass=By.id("user_password");
@@ -75,24 +77,24 @@ By savebutton=By.xpath("//div[@id='TAB_2']//button[@class='btn mg_submit-btn-gre
   @Test(priority=21)
   public void lifecycle() throws InterruptedException, IOException {
 	  Thread.sleep(3000);
-	driver.findElement(By.xpath("//div[contains(text(),'aawsbucket-97')]")).click();
+	driver.findElement(By.xpath("//div[contains(text(),'aawsbucket-117')]")).click();
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//a[contains(text(),'LifeCycle')]")).click();
 	Thread.sleep(1000);
 	}
-	@Test(priority=22)
+	//@Test(priority=22)
 	  public void lifecyclecreate() throws InterruptedException, IOException {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//body//div[@id='main-content']//div[@id='main-content']//div//div//div//div//div//div//li[2]//a[1]")).click();
 		Thread.sleep(2000);
-	driver.findElement(By.xpath("//div[@class='tab_container']//button[@class='btn btn_blue'][contains(text(),'Create')]")).click();
+	driver.findElement(By.xpath("//div[@class='tab_container']//div[@class='col-md-6 col-xs-12 col-sm-12']//button[@class='btn btn_blue']")).click();
 	Thread.sleep(1000);
 	//driver.findElement(By.xpath("//div[@id='lifeCycleModal']//div[@class='modal-content mg_modal-content']")).click();
-	driver.findElement(By.xpath("//body//div[@id='lifeCycleModal']//div//div//div//div[2]//div[1]//div[1]//input[1]")).sendKeys("transitionrule2 for bucket");
+	driver.findElement(By.xpath("//input[@id='ruleId']")).sendKeys("transitionrule2 for bucket");
 
-	driver.findElement(By.xpath("//body//div[@id='lifeCycleModal']//div//div//div//div//div[2]//div[1]//input[1]")).sendKeys("prifix2");
+	driver.findElement(By.xpath("//input[@id='prefixId']")).sendKeys("prifix2");
 driver.findElement(By.xpath("//div[@id='lifeCycleModal']//div[3]//div[1]//div[1]//label[1]//span[1]")).click();
-driver.findElement(By.xpath("//div[@id='lifeCycleModal']//div[4]//div[1]//div[1]//div[1]//label[1]//span[1]")).click();
+driver.findElement(By.xpath("//div[@class='col-md-10 col-sm-10 col-xs-10 RightSection storageManagement']//div[4]//div[1]//div[1]//div[1]//label[1]//span[1]")).click();
 
 driver.findElement(By.xpath("//div[@id='lifeCycleModal']//button[2]")).click();
 Thread.sleep(1000);
@@ -109,32 +111,55 @@ Thread.sleep(3000);
 driver.switchTo().alert().accept();
 Thread.sleep(2000);
 driver.switchTo().alert().accept();
-driver.findElement(By.xpath("//img[@class='back_img']")).click();
+Thread.sleep(2000);
+driver.switchTo().alert().accept();
+//driver.findElement(By.xpath("//img[@class='back_img']")).click();
 
 }
 @Test(priority=24)
   public void lifecycledeleteobject() throws InterruptedException, IOException {
-	 Thread.sleep(3000);
-	driver.findElement(By.xpath("//div[contains(text(),'aws')]")).click();
+	// Thread.sleep(3000);
+	 Thread.sleep(5000);
+	  driver.findElement(html)
+	 .click();
+	  Thread.sleep(5000);
+	  driver.findElement(By.xpath("//body//div[@id='main-content']//div//div[3]//div[1]//img[2]")).click();;
+	  Thread.sleep(5000);
+System.out.println("Check created existing aws bucket displayed on notification page");
+//WebElement action1= driver.findElement(By.xpath("//body//div[@id='main-content']//div[@id='main-content']//div//div//div//div[2]//div[1]//img[2]"));
+//action1.click();
+	driver.findElement(By.xpath("//div[contains(text(),'aawsbucket-117')]")).click();
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//a[contains(text(),'LifeCycle')]")).click();
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//div[@class='tab_container']//button[@class='btn btn_blue'][contains(text(),'Create')]")).click();
 	Thread.sleep(1000);
 	//driver.findElement(By.xpath("//div[@id='lifeCycleModal']//div[@class='modal-content mg_modal-content']")).click();
-	driver.findElement(By.xpath("//input[@name='ruleLifecycle']")).sendKeys("transitionrule for bucket");
+	driver.findElement(By.xpath("//div[@class='col-md-8 col-sm-8 col-xs-8']//input[@class='form-control mg_input ng-pristine ng-untouched ng-valid ng-empty']")).sendKeys("transitionrule_for_bucket");
 
-	driver.findElement(By.xpath("//input[@name='prefixLifecycle']")).sendKeys("prifix");
+	driver.findElement(By.xpath("//div[@class='col-md-4 col-sm-4 col-xs-4 pad_left_5']//input[@class='form-control mg_input ng-pristine ng-untouched ng-valid ng-empty']")).sendKeys("prifix");
 
 driver.findElement(By.xpath("//div[6]//div[1]//div[1]//label[1]//span[1]")).sendKeys("1");
 driver.findElement(By.xpath("//input[@name='deleteDaysAfter']"));
 driver.findElement(By.xpath("//div[@id='lifeCycleModal']//button[@class='btn mg_submit-btn-green'][contains(text(),'Save')]")).click();
 }
-@Test(priority=23)
+//@Test(priority=23)
   public void lifecycledelete() throws InterruptedException, IOException {
-	Thread.sleep(3000);
-	driver.findElement(By.xpath("//a[@id='lifeCycleDelete']")).click();
-	driver.findElement(By.xpath("//div[@id='tab_lifecycle']//div//div//div//div//div//div//div//div//div//ul[@id='tcodrop']//a")).click();
+	  Thread.sleep(5000);
+	  driver.findElement(html)
+	 .click();
+	  Thread.sleep(5000);
+	  driver.findElement(By.xpath("//body//div[@id='main-content']//div//div[3]//div[1]//img[2]")).click();;
+	  Thread.sleep(5000);
+System.out.println("Check created existing aws bucket displayed on notification page");
+//WebElement action1= driver.findElement(By.xpath("//body//div[@id='main-content']//div[@id='main-content']//div//div//div//div[2]//div[1]//img[2]"));
+//action1.click();
+	driver.findElement(By.xpath("//div[contains(text(),'aawsbucket-117')]")).click();
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("//a[contains(text(),'LifeCycle')]")).click();
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("//body/div[@id='center_div']/div/div/div/div[@id='main-content']/div/div[@id='StorageID']/div/div/div[@id='main-content']/div/div/div/div/div/div/div/div[@id='TAB1']/div/div/div/div/div/div/div/div/div/div/div/div[@id='tab_lifecycle']/div/div/div/div[1]/div[1]/div[2]/div[1]/div[2]/div[4]/a[1]")).click();
+	driver.findElement(By.xpath("//body//div[@id='tab_lifecycle']//div//div//div//div[1]//div[1]//div[2]//div[1]//div[2]//div[4]//ul[1]//li[1]//a[1]")).click();
 	Thread.sleep(3000);
 	driver.switchTo().alert().accept();
 	Thread.sleep(3000);

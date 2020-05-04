@@ -1,16 +1,22 @@
 package com.multicloud;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Createbucketgcp {
-	WebDriver driver;
+	//WebDriver driver;
 	//create Bucket
 	By CBucket=By.xpath("//div[@class='box12 boxClick storageBox']//img[@class='add_img']");
 	By smartBucketName=By.xpath("//ng-form[@name='cloud']//input[@placeholder='Enter Bucket Name']");
@@ -19,11 +25,62 @@ public class Createbucketgcp {
 	By ProviderName=By.xpath("//div[@id='TAB_2']//div[3]//div[1]//div[1]//select[1]");
 	By CloudBucketname=By.xpath("//input[@ng-model='bnbucket']");
 	By savebutton=By.xpath("//div[@id='TAB_2']//button[@class='btn mg_submit-btn-green'][contains(text(),'Save')]");
+	By addtab=By.xpath("//div[@class='box12 boxClick migrationBox']//img[@class='add_img']");
+	By Create=By.xpath("//div[@class='tab_container mg_tab_container']//button[@class='btn btn_blue'][contains(text(),'Create')]");
+	By i=By.xpath("//i[@class='fa fa-chevron-down']");
+	By uname=By.id("user_name");
+	By pass=By.id("user_password");
+	By Lbutton=By.id("login");
+	//add cloud provider
+	By provider=By.xpath("//a[contains(text(),'Storage')]");
+	By Storage=By.xpath("//a[@class='sidemenuanchor active ignore-click']//span[@class='list-group-item-value'][contains(text(),'Storage')]");
+	By ObjectStorage=By.xpath("//span[contains(text(),'Object Storage')]");
+	//By CBucket=By.xpath("//div[@class='box12 boxClick boxClick1']");
+	//cloud provider
+	By AWS=By.xpath("//div[@id='Storagediv1']//i[@class='fa fa-plus-square-o fa-lg fonticon']");
+	By aName=By.xpath("//*[@id=\'form_account_name\']");
+	By Akey=By.xpath("//input[@id='form_access_key']");
+	By Skey=By.xpath("//input[2]");
+	By region=By.xpath("//select[@id='form_destination_region']");
+	By validate=By.xpath("//button[@class='btn mg_validate-btn mg_margin-r-5']");
+	By CBucket1=By.xpath("//div[@class='box12 boxClick storageBox']//img[@class='add_img']");
 	
-	public Createbucketgcp(WebDriver driver) {
-		this.driver=driver; 
-		
-	}
+	 static WebDriver driver;
+	
+	 @BeforeTest
+	  public void setup() throws InterruptedException {
+		 System.setProperty("webdriver.chrome.driver", "C:/Users/puja.domke/Downloads/chromedriver_win32_new/chromedriver.exe");
+		 DesiredCapabilities dc = new DesiredCapabilities();
+			dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE); 
+			
+		 driver = new ChromeDriver();
+		 // driver.get("192.168.3.235:30510");
+		  Thread.sleep(2000);
+		//	driver.get("http://192.168.3.235:30010/");
+		driver.get("http://192.168.3.9:3000/");
+		  driver.manage().window().maximize();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  Thread.sleep(5000);
+		  driver.findElement(By.xpath("//i[@class='fa fa-chevron-down']")).click();
+	      Thread.sleep(3000);
+	      driver.findElement(By.id("user_name")).sendKeys("developer");
+		  driver.findElement(By.id("user_password")).sendKeys("Click2cloud");
+		  driver.findElement(Lbutton).click();
+		  Thread.sleep(3000);
+		  System.out.println("Login successfully");
+		  System.out.println("Dashboard title is"+ driver.getTitle());
+		      Thread.sleep(2000);
+		      }
+	 @Test(alwaysRun=true,priority=11,description = "object storage navigation")
+	  public void Objectstorage() throws InterruptedException {
+		  Thread.sleep(3000);
+		  driver.findElement(Storage).click();
+		  WebElement ele=driver.findElement(ObjectStorage);
+			Actions act=new Actions(driver);
+		    Thread.sleep(5000);
+		    act.moveToElement(ele).click().perform();
+		    Thread.sleep(3000);
+	 }   
 	
 	 @Test(priority=0)
 	  public void bucketgcp() throws InterruptedException, IOException {

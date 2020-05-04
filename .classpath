@@ -37,5 +37,17 @@
 	<classpathentry kind="lib" path="C:/Users/puja.domke/Documents/puja/Opensds-documents/extentreports-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/puja.domke/Desktop/extentreports-java-2.41.2.zip"/>
 	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/sikuli-api-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/piccolo2d-core-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/javacpp-0.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/sikuli-core-1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/piccolo2d-extras-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/opencv-2.4.9-0.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Desktop/sqlclient/sikulix-2.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Downloads/sikulixsetup-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Desktop/sqlclient/jna-5.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/puja.domke/Desktop/sqlclient/guava-29.0-jre.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

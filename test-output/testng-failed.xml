@@ -6,20 +6,21 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.multicloud.CreateBucketawsTest">
+      <class name="com.multicloud.MigrationTest">
         <methods>
-          <include name="uploadExistingaws"/>
-          <include name="uploadEncryptedExistingaws"/>
-          <include name="encryptedExistingbucketaws"/>
-          <include name="uploadaws"/>
-          <include name="Encryptedbucketaws"/>
           <include name="setup"/>
-          <include name="ImmediateMigrationCephtoIBM"/>
-          <include name="existingbucketaws"/>
+          <include name="ImmediateMigrationofbuckets"/>
+          <include name="beforeClass"/>
           <include name="afterSuite"/>
-          <include name="encrypteduploadaws"/>
         </methods>
-      </class> <!-- com.multicloud.CreateBucketawsTest -->
+      </class> <!-- com.multicloud.MigrationTest -->
+      <class name="com.multicloud.LifecycleTest">
+        <methods>
+          <include name="setup"/>
+          <include name="deleteobject"/>
+          <include name="lifecycledeleteobject"/>
+        </methods>
+      </class> <!-- com.multicloud.LifecycleTest -->
       <class name="com.multicloud.BlockstorageTest">
         <methods>
           <include name="AddSnapshot"/>
@@ -32,13 +33,15 @@
           <include name="DeleteSnapshot"/>
         </methods>
       </class> <!-- com.multicloud.BlockstorageTest -->
-      <class name="com.multicloud.LifecycleTest">
+      <class name="com.multicloud.CreateBucketawsTest">
         <methods>
-          <include name="lifecycledelete"/>
+          <include name="uploadaws"/>
+          <include name="Encryptedbucketaws"/>
+          <include name="encryptedExistingbucketalibaba"/>
           <include name="setup"/>
-          <include name="lifecycledeleteobject"/>
+          <include name="encrypteduploadaws"/>
         </methods>
-      </class> <!-- com.multicloud.LifecycleTest -->
+      </class> <!-- com.multicloud.CreateBucketawsTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

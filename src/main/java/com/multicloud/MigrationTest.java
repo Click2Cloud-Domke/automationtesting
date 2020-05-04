@@ -81,13 +81,13 @@ public class MigrationTest {
 	 }
 	
   @Test(alwaysRun = true,priority=26,description="immediatemigration")
-  public void ImmediateMigrationCephtoIBM() throws InterruptedException {
+  public void ImmediateMigrationofbuckets() throws InterruptedException {
 	  Thread.sleep(3000);
 	  driver.findElement(addtab).click();
 	  driver.findElement(Create).click();
 	  Thread.sleep(3000);
 	 // driver.findElement(By.xpath("//div[@class='modal-body mg_modal-body lifeCycleBody mig_body']")).click();
-	 driver.findElement(By.xpath("//input[@name='migName']")).sendKeys("testnewmigrationcti-02");
+	 driver.findElement(By.xpath("//input[@name='migName']")).sendKeys("testnewmigrationcti-04");
 	WebElement dr= driver.findElement(By.xpath("//body//div[@id='createModal']//div//div//div//div[2]//div[1]//div[1]//select[1]"));
 	  dr.click();
 	  Select selectBox = new Select(dr);
@@ -109,16 +109,16 @@ public class MigrationTest {
 		 System.out.println( driver.switchTo().alert().getText());
 		 driver.switchTo().alert().accept();
 		 driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-//		 JavascriptExecutor js = (JavascriptExecutor) driver;     		
-//		 js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		 JavascriptExecutor js = (JavascriptExecutor) driver;     		
+		 js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 //		 WebElement	text=driver.findElement(By.xpath("//div[contains(text(),'newmigrationcti-01')])"));
 //	     System.out.println(text);
-//	     driver.findElement(By.xpath("//div[contains(text(),'testnewmigrationcti-01')]")).click();
+	     driver.findElement(By.xpath("//div[contains(text(),'testnewmigrationcti-04')]")).click();
 		  
 	  
   }
  // @Test(alwaysRun = true)
-  public void ImmediateMigrationIbmtoCeph() throws InterruptedException {
+  public void ImmediateMigration() throws InterruptedException {
 	  Thread.sleep(3000);
 	  driver.findElement(addtab).click();
 	  driver.findElement(Create).click();
