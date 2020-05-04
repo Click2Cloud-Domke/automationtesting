@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 public class Createbucketgcp {
 	//WebDriver driver;
 	//create Bucket
+	
 	By CBucket=By.xpath("//div[@class='box12 boxClick storageBox']//img[@class='add_img']");
 	By smartBucketName=By.xpath("//ng-form[@name='cloud']//input[@placeholder='Enter Bucket Name']");
 	By RadioButton=By.xpath("//label[contains(text(),'Create Cloud Bucket')]");
@@ -31,6 +32,7 @@ public class Createbucketgcp {
 	By uname=By.id("user_name");
 	By pass=By.id("user_password");
 	By Lbutton=By.id("login");
+	
 	//add cloud provider
 	By provider=By.xpath("//a[contains(text(),'Storage')]");
 	By Storage=By.xpath("//a[@class='sidemenuanchor active ignore-click']//span[@class='list-group-item-value'][contains(text(),'Storage')]");
