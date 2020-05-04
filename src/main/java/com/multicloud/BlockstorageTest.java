@@ -377,6 +377,226 @@ public class BlockstorageTest {
  System.out.println(status.getText());
   status.click();
       }
+  
+
+@Test(alwaysRun = true,priority = 2,description="Add storage into lvm")
+public  void AddStoragelvm() throws InterruptedException
+    {  
+	  Thread.sleep(3000);
+    
+ WebElement storage = driver.findElement(By.xpath("//select[@id='storageTypeDropdown1']"));
+        storage.click();
+		 Select drpstorage = new Select(storage); 
+        Thread.sleep(4000);
+        drpstorage.selectByIndex(0);
+        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+    }
+@Test(alwaysRun=true,priority = 3)
+public  void AddVolumelvm() throws InterruptedException
+    {
+	  Thread.sleep(3000);
+       driver.findElement(By.xpath("//i[@id='addVolumeBtn']")) .click();
+	  Thread.sleep(3000);
+       driver.findElement(By.xpath("//*[@id='volume-name']")).sendKeys("create-volu1212");
+        System.out.println("Enter Volume Name");
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("1");
+        System.out.println("Enter Volume Size");
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[17]/div/input[1]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[@id='exampleModalLongSuccess']//div//div//div//button[contains(text(),'OK')]")).click();
+        Thread.sleep(5000);
+    }
+// @Test(alwaysRun=true,priority = 4)
+public  void EditVolumelvm() throws InterruptedException
+    {
+	  Thread.sleep(3000);
+	 
+        driver.findElement(By.xpath("//*[@id='volume-name']")).sendKeys("volume-test282");
+        System.out.println("Enter Volume Name");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("2");
+        System.out.println("Enter Volume Size");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[17]/div/input[1]")).click();
+        System.out.println("Click on Add button");
+        Thread.sleep(1000);
+       System.out.println(driver.switchTo().alert().getText());    
+        driver.switchTo().alert().accept();
+        Thread.sleep(5000);
+        
+        driver.findElement(By.xpath("//*[@id='v-account']")).click();
+        Thread.sleep(2000);
+        
+        driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[13]/div/div/div/div/ul/li[2]/div/div[1]/lable")).click();
+        System.out.println("Select volume");
+        
+        driver.findElement(By.xpath("//*[@id='v-account']")).click();
+        Thread.sleep(2000);
+        
+        driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[13]/div/div/div/div/ul/li/div/div[2]/div/i[1]/img")).click();
+        System.out.println("Click on Edit Icon");
+        Thread.sleep(2000);
+        
+        driver.findElement(By.xpath("//*[@id='volume-size']")).clear();
+        driver.findElement(By.xpath("//*[@id='volume-size']")).sendKeys("6");
+        System.out.println("Edit volume size");
+        
+        driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[17]/div/input[1]")).click();
+        System.out.println("Click on Save button");
+        Thread.sleep(5000);
+        System.out.println(driver.switchTo().alert().getText());  
+        driver.switchTo().alert().accept();
+        Thread.sleep(5000);
+                    
+    }
+@Test(alwaysRun = true,priority = 10)
+public  void DeleteVolumelvm() throws InterruptedException
+{Thread.sleep(2000);
+	  	driver.findElement(By.xpath("//a[contains(text(),'Storage +')]")).click();
+	  	Thread.sleep(2000);
+    driver.findElement(By.xpath("//*[@id='v-account']")).click();
+    Thread.sleep(2000);
+    
+    driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[13]/div/div/div/div/ul/li[2]/div/div[1]/lable")).click();
+    System.out.println("Select volume");
+    
+    driver.findElement(By.xpath("//*[@id='v-account']")).click();
+    Thread.sleep(2000);
+    
+    driver.findElement(By.xpath("//*[@id='s1']/div/div/div[1]/div/div[13]/div/div/div/div/ul/li/div/div[2]/div/i[2]/img")).click();
+    System.out.println("Click on Delete Icon");
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//*[@id='exampleModalLongMigrate']/div/div/div[2]/button[2]")).click();
+    System.out.println("Accecpt popup");
+    
+    System.out.println(driver.switchTo().alert().getText()); 
+    driver.switchTo().alert().accept();
+    Thread.sleep(5000);
+    }
+
+
+@Test(priority = 4)
+public  void AddSnapshotlvm() throws InterruptedException
+    {
+	  Thread.sleep(3000);
+        driver.findElement(By.xpath("//li[@class='nav-item active']//a")).click();
+        System.out.println("Go to snapshot tab");
+       Thread.sleep(1000);
+    // driver.findElement(By.xpath("//div[@id='exampleModalLongInfo']//div//div//div//button")).click();
+      //          driver.switchTo().alert().getText();    
+//        driver.switchTo().alert().accept();
+//        Thread.sleep(5000);
+//       WebElement type=driver.findElement(By.xpath("//select[@id='sel3']"));
+//       type.click();
+//       Select sc=new Select(type);
+//       sc.selectByIndex(0);
+        driver.findElement(By.xpath("//input[@id='name']")).sendKeys("lvmSnapshot432");
+        System.out.println("Enter snapshot name");
+        Thread.sleep(2000);
+        
+    driver.findElement(By.xpath("//*[@id='s2']/div/div/div/div[1]/div[3]/div[5]/div/button")).click();
+    Thread.sleep(5000);
+   WebElement   submit = driver.findElement(By.xpath("//div[@id='exampleModalLongSuccess']//div//div//div//button[contains(text(),'OK')]"));
+   submit.getText();
+   submit.click();
+     Thread.sleep(1000);   
+    }
+
+@Test(alwaysRun = true,priority = 10)
+public  void DeleteSnapshotlvm() throws InterruptedException
+    {       Thread.sleep(5000);
+        driver.findElement(By.xpath("//li[@class='nav-item active']//a")).click();
+       
+       
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[@class='row snapshot_container']//div[1]//div[1]//div[1]//div[1]//img[1]")).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        
+    }
+@Test(alwaysRun = true,priority = 5)
+public  void createhostlvm() throws InterruptedException
+    {
+Thread.sleep(3000);
+driver.findElement(By.xpath("//a[contains(text(),'Host')]")).click();
+      driver.findElement(By.xpath("//button[@id='hostCreateBtn']")).click();
+      Thread.sleep(3000);
+driver.findElement(By.xpath("//input[@name='hostFormName']")).sendKeys("lvm-host1125");
+WebElement os = driver.findElement(By.xpath("//select[@id='hostOS']"));
+  Select sc=new Select(os);
+  sc.selectByIndex(1);
+  driver.findElement(By.xpath("//input[@id='hostIpAddress']")).sendKeys("192.168.1.232");
+  driver.findElement(By.xpath("//input[@placeholder='Port Name']")).sendKeys("iqn.1993-08.org.debian:01:87308fbedf5c");
+WebElement initiator =driver.findElement(By.xpath("//select[@id='hostPortSelect']"));
+   Select sc1=new Select(initiator);
+   sc1.selectByIndex(1);
+   driver.findElement(By.xpath("//button[contains(text(),'Save')]")).click();
+   Thread.sleep(2000);
+   System.out.println(driver.switchTo().alert().getText());
+   driver.switchTo().alert().accept();
+    }
+@Test(alwaysRun=true,priority = 7)
+public  void attachlvm() throws InterruptedException
+    {
+	  Thread.sleep(3000);
+	driver.findElement(By.xpath("//a[contains(text(),'Storage +')]")).click();
+	Thread.sleep(2000);
+	 WebElement storage = driver.findElement(By.xpath("//select[@id='storageTypeDropdown1']"));
+     storage.click();
+		 Select drpstorage = new Select(storage); 
+		 drpstorage.selectByIndex(1);
+   
+     Thread.sleep(2000);
+	driver.findElement(By.xpath("//div[@id='s1']//div//div//div//div//div//div//div//div//div//button[contains(text(),'Attach')]")).click();
+	Thread.sleep(1000);
+WebElement	volume=driver.findElement(By.xpath("//select[@id='volumeAttach']"));
+volume.click();
+Select selectBox = new Select(volume);
+  int selectOptions = selectBox.getOptions().size();
+  selectBox.selectByIndex(selectOptions - 1);
+  
+  WebElement	host=driver.findElement(By.xpath("//select[@id='hostAttach']"));
+  host.click();
+  Select selectBox1 = new Select(host);
+    int selectOptions1 = selectBox1.getOptions().size();
+    selectBox.selectByIndex(selectOptions1 - 1);
+    Thread.sleep(2000);
+	driver.findElement(By.xpath("//div[@id='attachModal']//div//div//div//button[contains(text(),'Attach')]")).click();
+	Thread.sleep(2000);
+    System.out.println(driver.switchTo().alert().getText());
+	driver.switchTo().alert().accept();
+	
+    }
+@Test(alwaysRun=true,priority = 8)
+public  void detachlvm() throws InterruptedException
+    {
+	Thread.sleep(3000);
+	  driver.findElement(By.xpath("//div[@id='s1']//button[2]")).click();
+	  Thread.sleep(2000);
+	 WebElement vol = driver.findElement(By.xpath("//select[@id='detachVolume']"));
+    vol.click();
+		 Select drpstorage = new Select(vol); 
+		 drpstorage.selectByIndex(1);
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("//div[@id='detachModal']//div//div//div//button[contains(text(),'Detach')]")).click();
+		 Thread.sleep(4000);
+		 driver.switchTo().alert().accept();
+		 Thread.sleep(1000);
+		 
+}
+
+    
+
+
+
+
+
 
   
   @BeforeTest
